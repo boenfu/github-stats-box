@@ -1,11 +1,14 @@
 {
-    "name": "github-stats-box",
+    "name": "@forker/github-stats-box",
     "version": "0.2.1",
     "description": "Update a gist to contain your GitHub stats",
     "author": "bokub",
     "license": "MIT",
     "repository": "bokub/github-stats-box",
     "main": "index.js",
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
         "prettier": "prettier --write **/*.{js,md,json,yml}"
     },
