@@ -68,9 +68,8 @@ async function updateGist(stats) {
             ['📦', `Contributed to`, humanize(stats.contributedTo)],
         ]
             .map((content) => {
-                let line = `${content[1]}:${content[2]}`;
-                line = line.replace(':', ':' + ' '.repeat(36 - line.length));
-                line = `${content[0]}    ${line}`;
+                let line = `${content[1]}:  ${content[2]}`;
+                line = `${content[0]} ${line}`;
                 return line;
             })
             .join('\n') + '\n';
@@ -80,11 +79,6 @@ async function updateGist(stats) {
         headers: { authorization: `token ${githubToken}` },
     });
     const filename = Object.keys(gist.data.files)[0];
-
-    if (gist.data.files[filename].content === gistContent) {
-        console.info('Nothing to update');
-        return;
-    }
 
     return request('PATCH /gists/:gist_id', {
         files: {
