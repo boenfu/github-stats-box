@@ -2,7 +2,7 @@ name: Update Github Stats Gist
 on:
     workflow_dispatch:
     schedule:
-        - cron: '0 */12 * * *'
+        - cron: '0 */6 * * *'
     push:
         branches: master
 jobs:
@@ -12,7 +12,7 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                   node-version: 12
-            - run: npx github-stats-box
+            - run: npx @forker/github-stats-box
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }} # Do not edit, defined in secrets
 
